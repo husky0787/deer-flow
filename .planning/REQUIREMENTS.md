@@ -7,20 +7,20 @@
 
 ### 布局 (Layout)
 
-- [ ] **LAYOUT-01**: 聊天页显示固定三栏布局：左文件面板、中聊天区、右预览区，默认比例 1:2:2
-- [ ] **LAYOUT-02**: 三栏使用 `ResizablePanelGroup`（已有），用户可拖拽调整宽度
-- [ ] **LAYOUT-03**: 每栏独立滚动，无页面级滚动条（flex 容器正确设置 `min-h-0`）
-- [ ] **LAYOUT-04**: 右侧面板始终渲染（不条件 null），通过切换内容实现空状态/预览切换
-- [ ] **LAYOUT-05**: 不使用 `autoSaveId`，避免 SSR hydration 闪烁
+- [x] **LAYOUT-01**: 聊天页显示固定三栏布局：左文件面板、中聊天区、右预览区，默认比例 1:2:2
+- [x] **LAYOUT-02**: 三栏使用 `ResizablePanelGroup`（已有），用户可拖拽调整宽度
+- [x] **LAYOUT-03**: 每栏独立滚动，无页面级滚动条（flex 容器正确设置 `min-h-0`）
+- [x] **LAYOUT-04**: 右侧面板始终渲染（不条件 null），通过切换内容实现空状态/预览切换
+- [x] **LAYOUT-05**: 不使用 `autoSaveId`，避免 SSR hydration 闪烁
 
 ### 文件面板 (FilePanel)
 
-- [ ] **FILE-01**: 左侧面板显示 AI 生成文件（artifacts）和用户上传文件的统一列表
-- [ ] **FILE-02**: 文件行显示文件类型图标 + 文件名
-- [ ] **FILE-03**: 点击文件后该行高亮，右侧面板显示对应文件内容
-- [ ] **FILE-04**: AI 生成新文件时自动选中最新文件（autoSelect）
-- [ ] **FILE-05**: 无文件时显示"暂无文件"空状态
-- [ ] **FILE-06**: 文件列表独立滚动，新文件自动 scrollIntoView
+- [x] **FILE-01**: 左侧面板显示 AI 生成文件（artifacts）和用户上传文件的统一列表
+- [x] **FILE-02**: 文件行显示文件类型图标 + 文件名
+- [x] **FILE-03**: 点击文件后该行高亮，右侧面板显示对应文件内容
+- [x] **FILE-04**: AI 生成新文件时自动选中最新文件（autoSelect）
+- [x] **FILE-05**: 无文件时显示"暂无文件"空状态
+- [x] **FILE-06**: 文件列表独立滚动，新文件自动 scrollIntoView
 
 ### 预览面板 (Preview)
 
@@ -39,7 +39,7 @@
 - [x] **STATE-01**: 新建 `WorkspaceContext` 管理选中文件和统一文件列表
 - [x] **STATE-02**: `useWorkspaceFiles` hook 合并 artifacts（SSE 流）和 uploaded_files（TanStack Query）
 - [x] **STATE-03**: 上传文件和 artifact 的路径格式在 hook 内统一转换
-- [ ] **STATE-04**: 移除 `ArtifactTrigger` 弹出按钮，停用 `ArtifactsContext` 的 `open`/`autoOpen` 弹出逻辑
+- [x] **STATE-04**: 移除 `ArtifactTrigger` 弹出按钮，停用 `ArtifactsContext` 的 `open`/`autoOpen` 弹出逻辑
 - [x] **STATE-05**: 点击文件不触发导航侧边栏收起（修复 `setSidebarOpen(false)` 副作用）
 
 ## v2 Requirements
@@ -69,21 +69,21 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| LAYOUT-01 | Phase 1 | Pending |
-| LAYOUT-02 | Phase 1 | Pending |
-| LAYOUT-03 | Phase 1 | Pending |
-| LAYOUT-04 | Phase 1 | Pending |
-| LAYOUT-05 | Phase 1 | Pending |
-| FILE-01 | Phase 1 | Pending |
-| FILE-02 | Phase 1 | Pending |
-| FILE-03 | Phase 1 | Pending |
-| FILE-04 | Phase 1 | Pending |
-| FILE-05 | Phase 1 | Pending |
-| FILE-06 | Phase 1 | Pending |
+| LAYOUT-01 | Phase 1 | Complete |
+| LAYOUT-02 | Phase 1 | Complete |
+| LAYOUT-03 | Phase 1 | Complete |
+| LAYOUT-04 | Phase 1 | Complete |
+| LAYOUT-05 | Phase 1 | Complete |
+| FILE-01 | Phase 1 | Complete |
+| FILE-02 | Phase 1 | Complete |
+| FILE-03 | Phase 1 | Complete |
+| FILE-04 | Phase 1 | Complete |
+| FILE-05 | Phase 1 | Complete |
+| FILE-06 | Phase 1 | Complete |
 | STATE-01 | Phase 1 | Complete |
 | STATE-02 | Phase 1 | Complete |
 | STATE-03 | Phase 1 | Complete |
-| STATE-04 | Phase 1 | Pending |
+| STATE-04 | Phase 1 | Complete |
 | STATE-05 | Phase 1 | Complete |
 | PREV-01 | Phase 2 | Pending |
 | PREV-02 | Phase 2 | Pending |
