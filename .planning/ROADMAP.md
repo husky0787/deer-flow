@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — WorkspaceContext 状态层（context + useWorkspaceFiles hook + barrel exports）
-- [ ] 01-02-PLAN.md — 三栏布局 + LeftPanel 文件列表 + RightPanel 占位 + ArtifactTrigger 移除
+- [x] 01-02-PLAN.md — 三栏布局 + LeftPanel 文件列表 + RightPanel 占位 + ArtifactTrigger 移除
 
 ### Phase 2: 预览面板 + 收尾清理
 **Goal**: 用户点击任意类型文件后右侧面板正确渲染文件内容，包含加载骨架屏、大文件截断提示、视频资源正确释放，旧弹出式面板逻辑完全清除
@@ -45,11 +45,11 @@ Plans:
   3. 图片文件以 object-contain 自适应面板展示，视频文件显示带 controls 的播放器，切换视频后上一个视频资源正确释放
   4. 超过 500KB 的文本文件显示截断提示而非加载全部内容
   5. 整个改造不破坏现有聊天功能（消息流式输出、文件上传、模型切换均正常）
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 02-01: 实现 RightPanel 预览组件（代码 / Markdown / 纯文本 / 图片 / 视频分支，骨架屏，空状态）
-- [ ] 02-02: 大文件截断、视频资源 cleanup、旧 ArtifactsContext open 逻辑清理与回归测试
+- [ ] 02-01-PLAN.md — RightPanel 预览组件（代码 / Markdown / HTML / 纯文本 / 图片 / 视频分支，骨架屏，空状态，预览头部操作栏）
+- [ ] 02-02-PLAN.md — 大文件截断、视频资源 cleanup、构建验证与回归确认
 
 ## Progress
 
@@ -58,5 +58,5 @@ Phases execute in numeric order: 1 → 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. 布局骨架 + 状态层 + 文件面板 | 1/2 | In progress | - |
+| 1. 布局骨架 + 状态层 + 文件面板 | 2/2 | Complete | 2026-03-05 |
 | 2. 预览面板 + 收尾清理 | 0/2 | Not started | - |
