@@ -28,12 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. 左侧面板显示 AI 生成文件（artifacts）和用户上传文件的统一列表，每行有文件类型图标和文件名
   4. 点击文件后该行高亮，AI 生成新文件时自动选中最新文件并 scrollIntoView
   5. 无文件时左侧面板显示"暂无文件"空状态，点击文件不触发导航侧边栏收起
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 01-01: 创建 ThreeColumnLayout 骨架（ResizablePanelGroup 20/40/40，不传 autoSaveId，验证 min-h-0）
-- [ ] 01-02: 创建 WorkspaceContext + useWorkspaceFiles hook（合并 artifacts 和 uploaded_files，统一路径格式）
-- [ ] 01-03: 实现 LeftPanel 文件列表（高亮、autoSelect、scrollIntoView、空状态），移除 ArtifactTrigger
+- [ ] 01-01-PLAN.md — WorkspaceContext 状态层（context + useWorkspaceFiles hook + barrel exports）
+- [ ] 01-02-PLAN.md — 三栏布局 + LeftPanel 文件列表 + RightPanel 占位 + ArtifactTrigger 移除
 
 ### Phase 2: 预览面板 + 收尾清理
 **Goal**: 用户点击任意类型文件后右侧面板正确渲染文件内容，包含加载骨架屏、大文件截断提示、视频资源正确释放，旧弹出式面板逻辑完全清除
@@ -59,5 +58,5 @@ Phases execute in numeric order: 1 → 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. 布局骨架 + 状态层 + 文件面板 | 0/3 | Not started | - |
+| 1. 布局骨架 + 状态层 + 文件面板 | 0/2 | Not started | - |
 | 2. 预览面板 + 收尾清理 | 0/2 | Not started | - |
