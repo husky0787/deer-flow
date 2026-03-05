@@ -3,6 +3,7 @@
 import { PromptInputProvider } from "@/components/ai-elements/prompt-input";
 import { ArtifactsProvider } from "@/components/workspace/artifacts";
 import { SubtasksProvider } from "@/core/tasks/context";
+import { WorkspaceProvider } from "@/core/workspace";
 
 export default function ChatLayout({
   children,
@@ -11,9 +12,11 @@ export default function ChatLayout({
 }) {
   return (
     <SubtasksProvider>
-      <ArtifactsProvider>
-        <PromptInputProvider>{children}</PromptInputProvider>
-      </ArtifactsProvider>
+      <WorkspaceProvider>
+        <ArtifactsProvider>
+          <PromptInputProvider>{children}</PromptInputProvider>
+        </ArtifactsProvider>
+      </WorkspaceProvider>
     </SubtasksProvider>
   );
 }
