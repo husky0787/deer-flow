@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — WorkspaceContext 状态层（context + useWorkspaceFiles hook + barrel exports）
+- [x] 01-01-PLAN.md — WorkspaceContext 状态层（context + useWorkspaceFiles hook + barrel exports）
 - [ ] 01-02-PLAN.md — 三栏布局 + LeftPanel 文件列表 + RightPanel 占位 + ArtifactTrigger 移除
 
 ### Phase 2: 预览面板 + 收尾清理
@@ -58,5 +58,5 @@ Phases execute in numeric order: 1 → 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. 布局骨架 + 状态层 + 文件面板 | 0/2 | Not started | - |
+| 1. 布局骨架 + 状态层 + 文件面板 | 1/2 | In progress | - |
 | 2. 预览面板 + 收尾清理 | 0/2 | Not started | - |

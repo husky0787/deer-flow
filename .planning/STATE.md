@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-05T12:56:48.544Z"
-last_activity: 2026-03-05 — Roadmap created, ready to begin Phase 1 planning
+status: executing
+stopped_at: Completed 01-01-PLAN.md
+last_updated: "2026-03-05T13:37:00Z"
+last_activity: 2026-03-05 — Completed 01-01-PLAN.md (WorkspaceContext 状态层)
 progress:
   total_phases: 2
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 4
+  completed_plans: 1
+  percent: 25
 ---
 
 # Project State
@@ -26,28 +26,28 @@ See: .planning/PROJECT.md (updated 2026-03-05)
 ## Current Position
 
 Phase: 1 of 2 (布局骨架 + 状态层 + 文件面板)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-03-05 — Roadmap created, ready to begin Phase 1 planning
+Plan: 1 of 2 in current phase
+Status: Executing
+Last activity: 2026-03-05 — Completed 01-01-PLAN.md (WorkspaceContext 状态层)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██░░░░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: —
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 4 min
+- Total execution time: 0.07 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 1 | 1/2 | 4 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: —
-- Trend: —
+- Last 5 plans: 01-01 (4 min)
+- Trend: Starting
 
 *Updated after each plan completion*
 
@@ -61,6 +61,9 @@ Recent decisions affecting current work:
 - 固定三栏 1:2:2 布局，使用 ResizablePanelGroup（已有），不传 autoSaveId 避免 SSR hydration 闪烁
 - 新建 WorkspaceContext 取代 ArtifactsContext 作为面板状态核心，停用 open/autoOpen 弹出逻辑
 - v1 文件列表统一显示（不分"AI生成/已上传"分组），分组延后到 v2
+- useCallback 包装 context setters 防止 useEffect 无限循环（01-01）
+- selectFile 显式不调用 setSidebarOpen，修复 STATE-05（01-01）
+- 合并去重时 artifact 优先（01-01）
 
 ### Pending Todos
 
@@ -75,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T12:56:48.542Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-layout-skeleton-state-file-panel/01-CONTEXT.md
+Last session: 2026-03-05T13:37:00Z
+Stopped at: Completed 01-01-PLAN.md
+Resume file: .planning/phases/01-layout-skeleton-state-file-panel/01-01-SUMMARY.md

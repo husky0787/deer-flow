@@ -36,11 +36,11 @@
 
 ### 状态管理 (State)
 
-- [ ] **STATE-01**: 新建 `WorkspaceContext` 管理选中文件和统一文件列表
-- [ ] **STATE-02**: `useWorkspaceFiles` hook 合并 artifacts（SSE 流）和 uploaded_files（TanStack Query）
-- [ ] **STATE-03**: 上传文件和 artifact 的路径格式在 hook 内统一转换
+- [x] **STATE-01**: 新建 `WorkspaceContext` 管理选中文件和统一文件列表
+- [x] **STATE-02**: `useWorkspaceFiles` hook 合并 artifacts（SSE 流）和 uploaded_files（TanStack Query）
+- [x] **STATE-03**: 上传文件和 artifact 的路径格式在 hook 内统一转换
 - [ ] **STATE-04**: 移除 `ArtifactTrigger` 弹出按钮，停用 `ArtifactsContext` 的 `open`/`autoOpen` 弹出逻辑
-- [ ] **STATE-05**: 点击文件不触发导航侧边栏收起（修复 `setSidebarOpen(false)` 副作用）
+- [x] **STATE-05**: 点击文件不触发导航侧边栏收起（修复 `setSidebarOpen(false)` 副作用）
 
 ## v2 Requirements
 
@@ -80,11 +80,11 @@
 | FILE-04 | Phase 1 | Pending |
 | FILE-05 | Phase 1 | Pending |
 | FILE-06 | Phase 1 | Pending |
-| STATE-01 | Phase 1 | Pending |
-| STATE-02 | Phase 1 | Pending |
-| STATE-03 | Phase 1 | Pending |
+| STATE-01 | Phase 1 | Complete |
+| STATE-02 | Phase 1 | Complete |
+| STATE-03 | Phase 1 | Complete |
 | STATE-04 | Phase 1 | Pending |
-| STATE-05 | Phase 1 | Pending |
+| STATE-05 | Phase 1 | Complete |
 | PREV-01 | Phase 2 | Pending |
 | PREV-02 | Phase 2 | Pending |
 | PREV-03 | Phase 2 | Pending |
