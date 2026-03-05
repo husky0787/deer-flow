@@ -33,7 +33,18 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [autoSelect, setAutoSelect] = useState(true);
 
   const setFiles = useCallback((newFiles: WorkspaceFile[]) => {
-    _setFiles(newFiles);
+    _setFiles((prev) => {
+      if (
+        prev.length === newFiles.length &&
+        prev.every(
+          (f, i) =>
+            f.path === newFiles[i]?.path && f.source === newFiles[i]?.source,
+        )
+      ) {
+        return prev;
+      }
+      return newFiles;
+    });
   }, []);
 
   const selectFile = useCallback((path: string, isAutoSelect = false) => {

@@ -29,6 +29,8 @@ import { useWorkspaceFiles } from "@/core/workspace";
 import { env } from "@/env";
 import { cn } from "@/lib/utils";
 
+const EMPTY_ARTIFACTS: string[] = [];
+
 export default function ChatPage() {
   const { t } = useI18n();
   const [settings, setSettings] = useLocalSettings();
@@ -64,7 +66,7 @@ export default function ChatPage() {
     },
   });
 
-  useWorkspaceFiles(threadId, thread.values.artifacts ?? []);
+  useWorkspaceFiles(threadId, thread.values.artifacts ?? EMPTY_ARTIFACTS);
 
   const handleSubmit = useCallback(
     (message: PromptInputMessage) => {
