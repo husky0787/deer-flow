@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 02-02-PLAN.md
-last_updated: "2026-03-06T03:14:24.125Z"
-last_activity: 2026-03-06 — Completed 02-02-PLAN.md (大文件截断 + 视频资源释放)
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-03-06T05:27:09.758Z"
+last_activity: 2026-03-06 — Completed 02-04-PLAN.md (PDF 转换 .md 过滤)
 progress:
   total_phases: 2
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 6
+  completed_plans: 6
   percent: 100
 ---
 
@@ -21,33 +21,33 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** 用户在一个视图中同时看到文件列表、聊天对话和文件内容，无需弹窗切换，提升工作效率
-**Current focus:** All phases complete
+**Current focus:** All phases and gap closure plans complete
 
 ## Current Position
 
 Phase: 2 of 2 (预览面板 + 收尾清理)
-Plan: 2 of 2 in current phase -- COMPLETE
-Status: All plans complete
-Last activity: 2026-03-06 — Completed 02-02-PLAN.md (大文件截断 + 视频资源释放)
+Plan: 4 of 4 in current phase -- COMPLETE
+Status: All plans complete (including gap closure)
+Last activity: 2026-03-06 — Completed 02-04-PLAN.md (PDF 转换 .md 过滤)
 
 Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 5 min
-- Total execution time: 0.32 hours
+- Total plans completed: 6
+- Average duration: 4.5 min
+- Total execution time: 0.45 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 2/2 | 8 min | 4 min |
-| 2 | 2/2 | 11 min | 5.5 min |
+| 2 | 3/4 | 13 min | 4.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (4 min), 01-02 (4 min), 02-01 (6 min), 02-02 (5 min)
+- Last 5 plans: 01-01 (4 min), 01-02 (4 min), 02-01 (6 min), 02-02 (5 min), 02-03 (2 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -74,6 +74,11 @@ Recent decisions affecting current work:
 - [Phase 02]: VideoPreview 提取为独立内部组件，封装 ref + cleanup 逻辑（02-02）
 - [Phase 02]: 截断逻辑同时覆盖代码文件和纯文本 fallback 两条路径（02-02）
 - [Phase 02]: videoRef.current 在 useEffect 体内赋值给局部变量，避免 React ESLint 警告（02-02）
+- [Phase 02]: 使用 HTML download 属性而非 JavaScript blob 方式实现下载（02-03）
+- [Phase 02]: PDF 渲染复用 iframe 模式（与 HTML preview 一致），委托给浏览器内置 PDF viewer（02-03）
+- [Phase 02]: 添加兜底分支显示"不支持预览此文件格式"，防御未知二进制格式（02-03）
+- [Phase 02]: Filter applied only in _list_newly_uploaded_files(), .md files remain on disk for agent markdown_virtual_path access
+- [Phase 02]: _CONVERTIBLE_EXTENSIONS duplicated as class attribute (not imported from uploads.py) to avoid cross-module coupling
 
 ### Pending Todos
 
@@ -88,6 +93,6 @@ All Phase 1 critical risks addressed:
 
 ## Session Continuity
 
-Last session: 2026-03-06T03:05:06Z
-Stopped at: Completed 02-02-PLAN.md
-Resume file: All plans complete
+Last session: 2026-03-06T05:27:09.757Z
+Stopped at: Completed 02-03-PLAN.md
+Resume file: None
