@@ -141,7 +141,8 @@ export function PreviewHeader({
         <Tooltip content={t.common.download}>
           <a
             href={urlOfArtifact({ filepath, threadId, download: true })}
-            target="_blank"
+            download={getFileName(filepath)}
+            rel="noreferrer"
           >
             <Button variant="ghost" size="icon">
               <DownloadIcon className="size-4" />
