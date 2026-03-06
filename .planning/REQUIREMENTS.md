@@ -31,8 +31,8 @@
 - [x] **PREV-05**: 纯文本文件以等宽字体展示
 - [x] **PREV-06**: 未选中文件时显示"选择文件预览"空状态
 - [x] **PREV-07**: 文件加载中显示骨架屏
-- [ ] **PREV-08**: 大文件（>500KB 文本）显示截断提示而非加载全部内容
-- [ ] **PREV-09**: 视频组件卸载时正确释放资源（防内存泄漏）
+- [x] **PREV-08**: 大文件（>500KB 文本）显示截断提示而非加载全部内容
+- [x] **PREV-09**: 视频组件卸载时正确释放资源（防内存泄漏）
 
 ### 状态管理 (State)
 
@@ -92,8 +92,8 @@
 | PREV-05 | Phase 2 | Complete |
 | PREV-06 | Phase 2 | Complete |
 | PREV-07 | Phase 2 | Complete |
-| PREV-08 | Phase 2 | Pending |
-| PREV-09 | Phase 2 | Pending |
+| PREV-08 | Phase 2 | Complete |
+| PREV-09 | Phase 2 | Complete |
 
 **Coverage:**
 - v1 requirements: 25 total

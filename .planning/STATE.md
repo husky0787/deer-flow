@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in-progress
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-06T02:52:14Z"
-last_activity: 2026-03-06 — Completed 02-01-PLAN.md (预览面板多类型渲染)
+status: complete
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-06T03:05:06Z"
+last_activity: 2026-03-06 — Completed 02-02-PLAN.md (大文件截断 + 视频资源释放)
 progress:
   total_phases: 2
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
-  percent: 75
+  completed_plans: 4
+  percent: 100
 ---
 
 # Project State
@@ -21,33 +21,33 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** 用户在一个视图中同时看到文件列表、聊天对话和文件内容，无需弹窗切换，提升工作效率
-**Current focus:** Phase 2 — 预览面板 + 收尾清理
+**Current focus:** All phases complete
 
 ## Current Position
 
 Phase: 2 of 2 (预览面板 + 收尾清理)
-Plan: 1 of 2 in current phase -- COMPLETE
-Status: Executing Phase 2
-Last activity: 2026-03-06 — Completed 02-01-PLAN.md (预览面板多类型渲染)
+Plan: 2 of 2 in current phase -- COMPLETE
+Status: All plans complete
+Last activity: 2026-03-06 — Completed 02-02-PLAN.md (大文件截断 + 视频资源释放)
 
-Progress: [███████░░░] 75%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 5 min
-- Total execution time: 0.23 hours
+- Total execution time: 0.32 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 2/2 | 8 min | 4 min |
-| 2 | 1/2 | 6 min | 6 min |
+| 2 | 2/2 | 11 min | 5.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (4 min), 01-02 (4 min), 02-01 (6 min)
+- Last 5 plans: 01-01 (4 min), 01-02 (4 min), 02-01 (6 min), 02-02 (5 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -71,6 +71,9 @@ Recent decisions affecting current work:
 - [Phase 02]: FilePreview 内部闭环管理 viewMode/isLoading/content，RightPanel 仅分发空状态或预览（02-01）
 - [Phase 02]: 使用 Shiki CodeBlock 做只读预览，不用 CodeMirror（用户锁定决策）（02-01）
 - [Phase 02]: 纯文本 fallback 用 useQuery + fetch 独立加载，staleTime 5 分钟（02-01）
+- [Phase 02]: VideoPreview 提取为独立内部组件，封装 ref + cleanup 逻辑（02-02）
+- [Phase 02]: 截断逻辑同时覆盖代码文件和纯文本 fallback 两条路径（02-02）
+- [Phase 02]: videoRef.current 在 useEffect 体内赋值给局部变量，避免 React ESLint 警告（02-02）
 
 ### Pending Todos
 
@@ -85,6 +88,6 @@ All Phase 1 critical risks addressed:
 
 ## Session Continuity
 
-Last session: 2026-03-06T02:52:14Z
-Stopped at: Completed 02-01-PLAN.md
-Resume file: .planning/phases/02-preview-panel-cleanup/02-02-PLAN.md
+Last session: 2026-03-06T03:05:06Z
+Stopped at: Completed 02-02-PLAN.md
+Resume file: All plans complete
