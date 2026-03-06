@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-05T14:39:53.578Z"
-last_activity: 2026-03-05 — Completed 01-02-PLAN.md (三栏布局 + 文件面板)
+status: in-progress
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-06T02:52:14Z"
+last_activity: 2026-03-06 — Completed 02-01-PLAN.md (预览面板多类型渲染)
 progress:
   total_phases: 2
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 50
+  total_plans: 4
+  completed_plans: 3
+  percent: 75
 ---
 
 # Project State
@@ -21,32 +21,33 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** 用户在一个视图中同时看到文件列表、聊天对话和文件内容，无需弹窗切换，提升工作效率
-**Current focus:** Phase 1 — 布局骨架 + 状态层 + 文件面板
+**Current focus:** Phase 2 — 预览面板 + 收尾清理
 
 ## Current Position
 
-Phase: 1 of 2 (布局骨架 + 状态层 + 文件面板) -- COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase 1 Complete
-Last activity: 2026-03-05 — Completed 01-02-PLAN.md (三栏布局 + 文件面板)
+Phase: 2 of 2 (预览面板 + 收尾清理)
+Plan: 1 of 2 in current phase -- COMPLETE
+Status: Executing Phase 2
+Last activity: 2026-03-06 — Completed 02-01-PLAN.md (预览面板多类型渲染)
 
-Progress: [█████░░░░░] 50%
+Progress: [███████░░░] 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 4 min
-- Total execution time: 0.13 hours
+- Total plans completed: 3
+- Average duration: 5 min
+- Total execution time: 0.23 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 2/2 | 8 min | 4 min |
+| 2 | 1/2 | 6 min | 6 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (4 min), 01-02 (4 min)
+- Last 5 plans: 01-01 (4 min), 01-02 (4 min), 02-01 (6 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -67,6 +68,9 @@ Recent decisions affecting current work:
 - [Phase 01]: 保留 ArtifactsProvider 在 layout.tsx 中用于向后兼容（01-02）
 - [Phase 01]: 不传 id/autoSaveId 给 ResizablePanelGroup 避免 SSR hydration 闪烁（01-02）
 - [Phase 01]: LeftPanel 使用 useRef<Map> 存储每个 Card DOM 引用实现 scrollIntoView（01-02）
+- [Phase 02]: FilePreview 内部闭环管理 viewMode/isLoading/content，RightPanel 仅分发空状态或预览（02-01）
+- [Phase 02]: 使用 Shiki CodeBlock 做只读预览，不用 CodeMirror（用户锁定决策）（02-01）
+- [Phase 02]: 纯文本 fallback 用 useQuery + fetch 独立加载，staleTime 5 分钟（02-01）
 
 ### Pending Todos
 
@@ -81,6 +85,6 @@ All Phase 1 critical risks addressed:
 
 ## Session Continuity
 
-Last session: 2026-03-05T14:39:53.576Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-preview-panel-cleanup/02-CONTEXT.md
+Last session: 2026-03-06T02:52:14Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-preview-panel-cleanup/02-02-PLAN.md

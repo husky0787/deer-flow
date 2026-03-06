@@ -24,13 +24,13 @@
 
 ### 预览面板 (Preview)
 
-- [ ] **PREV-01**: 代码文件以语法高亮只读模式展示（复用 CodeMirror/Shiki）
-- [ ] **PREV-02**: Markdown 文件渲染后展示（复用 Streamdown/rehype）
-- [ ] **PREV-03**: 图片文件以 `<img>` 展示，`object-contain` 适配面板
-- [ ] **PREV-04**: 视频文件以 `<video>` 展示，带 `controls` + `muted` + `playsInline`
-- [ ] **PREV-05**: 纯文本文件以等宽字体展示
-- [ ] **PREV-06**: 未选中文件时显示"选择文件预览"空状态
-- [ ] **PREV-07**: 文件加载中显示骨架屏
+- [x] **PREV-01**: 代码文件以语法高亮只读模式展示（复用 CodeMirror/Shiki）
+- [x] **PREV-02**: Markdown 文件渲染后展示（复用 Streamdown/rehype）
+- [x] **PREV-03**: 图片文件以 `<img>` 展示，`object-contain` 适配面板
+- [x] **PREV-04**: 视频文件以 `<video>` 展示，带 `controls` + `muted` + `playsInline`
+- [x] **PREV-05**: 纯文本文件以等宽字体展示
+- [x] **PREV-06**: 未选中文件时显示"选择文件预览"空状态
+- [x] **PREV-07**: 文件加载中显示骨架屏
 - [ ] **PREV-08**: 大文件（>500KB 文本）显示截断提示而非加载全部内容
 - [ ] **PREV-09**: 视频组件卸载时正确释放资源（防内存泄漏）
 
@@ -85,13 +85,13 @@
 | STATE-03 | Phase 1 | Complete |
 | STATE-04 | Phase 1 | Complete |
 | STATE-05 | Phase 1 | Complete |
-| PREV-01 | Phase 2 | Pending |
-| PREV-02 | Phase 2 | Pending |
-| PREV-03 | Phase 2 | Pending |
-| PREV-04 | Phase 2 | Pending |
-| PREV-05 | Phase 2 | Pending |
-| PREV-06 | Phase 2 | Pending |
-| PREV-07 | Phase 2 | Pending |
+| PREV-01 | Phase 2 | Complete |
+| PREV-02 | Phase 2 | Complete |
+| PREV-03 | Phase 2 | Complete |
+| PREV-04 | Phase 2 | Complete |
+| PREV-05 | Phase 2 | Complete |
+| PREV-06 | Phase 2 | Complete |
+| PREV-07 | Phase 2 | Complete |
 | PREV-08 | Phase 2 | Pending |
 | PREV-09 | Phase 2 | Pending |
 

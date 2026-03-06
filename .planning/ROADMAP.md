@@ -48,7 +48,7 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — RightPanel 预览组件（代码 / Markdown / HTML / 纯文本 / 图片 / 视频分支，骨架屏，空状态，预览头部操作栏）
+- [x] 02-01-PLAN.md — RightPanel 预览组件（代码 / Markdown / HTML / 纯文本 / 图片 / 视频分支，骨架屏，空状态，预览头部操作栏）
 - [ ] 02-02-PLAN.md — 大文件截断、视频资源 cleanup、构建验证与回归确认
 
 ## Progress
@@ -59,4 +59,4 @@ Phases execute in numeric order: 1 → 2
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. 布局骨架 + 状态层 + 文件面板 | 2/2 | Complete | 2026-03-05 |
-| 2. 预览面板 + 收尾清理 | 0/2 | Not started | - |
+| 2. 预览面板 + 收尾清理 | 1/2 | In Progress | - |
