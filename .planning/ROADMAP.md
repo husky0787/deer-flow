@@ -45,11 +45,13 @@ Plans:
   3. 图片文件以 object-contain 自适应面板展示，视频文件显示带 controls 的播放器，切换视频后上一个视频资源正确释放
   4. 超过 500KB 的文本文件显示截断提示而非加载全部内容
   5. 整个改造不破坏现有聊天功能（消息流式输出、文件上传、模型切换均正常）
-**Plans:** 2 plans
+**Plans:** 4 plans
 
 Plans:
 - [x] 02-01-PLAN.md — RightPanel 预览组件（代码 / Markdown / HTML / 纯文本 / 图片 / 视频分支，骨架屏，空状态，预览头部操作栏）
-- [ ] 02-02-PLAN.md — 大文件截断、视频资源 cleanup、构建验证与回归确认
+- [x] 02-02-PLAN.md — 大文件截断、视频资源 cleanup、构建验证与回归确认
+- [ ] 02-03-PLAN.md — UAT 差距修复：下载按钮行为（移除 target='_blank'）+ PDF 预览（iframe 分支）
+- [ ] 02-04-PLAN.md — UAT 差距修复：过滤 PDF 转换 .md 文件避免聊天注入重复文件
 
 ## Progress
 
@@ -59,4 +61,4 @@ Phases execute in numeric order: 1 → 2
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. 布局骨架 + 状态层 + 文件面板 | 2/2 | Complete | 2026-03-05 |
-| 2. 预览面板 + 收尾清理 | 1/2 | In Progress | - |
+| 2. 预览面板 + 收尾清理 | 2/4 | Gap Closure | - |
