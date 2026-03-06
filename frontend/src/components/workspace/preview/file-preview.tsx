@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { BundledLanguage } from "shiki";
 import { Streamdown } from "streamdown";
 
@@ -17,6 +17,13 @@ import {
 
 import { PreviewHeader } from "./preview-header";
 import { PreviewSkeleton } from "./preview-skeleton";
+
+// ---------- constants ----------
+
+/** 超过 500KB 的文本内容触发截断 */
+const MAX_TEXT_SIZE = 500 * 1024;
+/** 截断后显示的字符数 */
+const TRUNCATE_DISPLAY_CHARS = 50_000;
 
 // ---------- helpers ----------
 
@@ -49,6 +56,42 @@ function usePlainTextContent(url: string, enabled: boolean) {
     enabled,
     staleTime: 5 * 60 * 1000,
   });
+}
+
+// ---------- VideoPreview ----------
+
+function VideoPreview({
+  src,
+  filepath,
+}: {
+  src: string;
+  filepath: string;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    return () => {
+      if (video) {
+        video.pause();
+        video.removeAttribute("src");
+        video.load(); // 释放已缓冲的数据
+      }
+    };
+  }, [filepath]);
+
+  return (
+    <div className="flex size-full items-center justify-center p-4">
+      <video
+        ref={videoRef}
+        src={src}
+        controls
+        muted
+        playsInline
+        className="max-h-full max-w-full"
+      />
+    </div>
+  );
 }
 
 // ---------- component ----------
@@ -93,7 +136,12 @@ export function FilePreview({
     enabled: isCodeFile,
   });
 
-  const displayContent = content ?? "";
+  // 大文件截断（代码文件）
+  const isCodeTruncated =
+    content != null && content.length > MAX_TEXT_SIZE;
+  const displayContent = isCodeTruncated
+    ? content.slice(0, TRUNCATE_DISPLAY_CHARS)
+    : (content ?? "");
 
   // For non-code, non-image, non-video files: plain text fallback
   const ext = getFileExtension(filepath);
@@ -105,6 +153,15 @@ export function FilePreview({
 
   const { data: plainText, isLoading: isPlainTextLoading } =
     usePlainTextContent(artifactUrl, isPlainText);
+
+  // 大文件截断（纯文本）
+  const isPlainTruncated =
+    plainText != null && plainText.length > MAX_TEXT_SIZE;
+  const displayPlainText = isPlainTruncated
+    ? plainText.slice(0, TRUNCATE_DISPLAY_CHARS)
+    : (plainText ?? "");
+
+  const isTruncated = isCodeTruncated || isPlainTruncated;
 
   // Determine overall loading state
   const showSkeleton =
@@ -121,7 +178,7 @@ export function FilePreview({
         content={isCodeFile ? (displayContent as string | null) : null}
       />
 
-      <div className="min-h-0 flex-1 overflow-auto">
+      <div className="relative min-h-0 flex-1 overflow-auto">
         {showSkeleton ? (
           <PreviewSkeleton />
         ) : isCodeFile ? (
@@ -157,19 +214,17 @@ export function FilePreview({
             />
           </div>
         ) : isVideo ? (
-          <div className="flex size-full items-center justify-center p-4">
-            <video
-              src={artifactUrl}
-              controls
-              muted
-              playsInline
-              className="max-h-full max-w-full"
-            />
-          </div>
+          <VideoPreview src={artifactUrl} filepath={filepath} />
         ) : (
           <pre className="whitespace-pre-wrap p-4 font-mono text-sm">
-            {plainText ?? ""}
+            {displayPlainText}
           </pre>
+        )}
+
+        {isTruncated && (
+          <div className="sticky bottom-0 flex items-center justify-center border-t bg-muted/80 px-4 py-2 text-sm text-muted-foreground backdrop-blur">
+            文件过大，仅显示前 {TRUNCATE_DISPLAY_CHARS.toLocaleString()} 字符
+          </div>
         )}
       </div>
     </div>
