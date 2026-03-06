@@ -43,6 +43,12 @@ function isVideoFile(ext: string) {
   return VIDEO_EXTENSIONS.has(ext);
 }
 
+const PDF_EXTENSIONS = new Set(["pdf"]);
+
+function isPdfFile(ext: string) {
+  return PDF_EXTENSIONS.has(ext);
+}
+
 // ---------- plain-text hook ----------
 
 function usePlainTextContent(url: string, enabled: boolean) {
@@ -146,8 +152,9 @@ export function FilePreview({
   // For non-code, non-image, non-video files: plain text fallback
   const ext = getFileExtension(filepath);
   const isImage = !isCodeFile && isImageFile(ext);
-  const isVideo = !isCodeFile && isVideoFile(ext);
-  const isPlainText = !isCodeFile && !isImage && !isVideo;
+  const isVideo = !isCodeFile && !isImage && isVideoFile(ext);
+  const isPdf = !isCodeFile && !isImage && !isVideo && isPdfFile(ext);
+  const isPlainText = !isCodeFile && !isImage && !isVideo && !isPdf;
 
   const artifactUrl = urlOfArtifact({ filepath, threadId, isMock });
 
@@ -215,10 +222,20 @@ export function FilePreview({
           </div>
         ) : isVideo ? (
           <VideoPreview src={artifactUrl} filepath={filepath} />
-        ) : (
+        ) : isPdf ? (
+          <iframe
+            className="size-full"
+            src={artifactUrl}
+            title={getFileExtension(filepath).toUpperCase() + " preview"}
+          />
+        ) : isPlainText ? (
           <pre className="whitespace-pre-wrap p-4 font-mono text-sm">
             {displayPlainText}
           </pre>
+        ) : (
+          <div className="flex size-full items-center justify-center p-4 text-sm text-muted-foreground">
+            不支持预览此文件格式
+          </div>
         )}
 
         {isTruncated && (
