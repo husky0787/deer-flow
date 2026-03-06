@@ -155,4 +155,4 @@ async def get_artifact(thread_id: str, path: str, request: Request) -> FileRespo
     if is_text_file_by_content(actual_path):
         return PlainTextResponse(content=actual_path.read_text(), media_type=mime_type)
 
-    return Response(content=actual_path.read_bytes(), media_type=mime_type, headers={"Content-Disposition": f"inline; filename*=UTF-8''{encoded_filename}"})
+    return FileResponse(path=actual_path, media_type=mime_type, headers={"Content-Disposition": f"inline; filename*=UTF-8''{encoded_filename}"})

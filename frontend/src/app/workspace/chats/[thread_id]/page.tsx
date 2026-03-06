@@ -166,7 +166,7 @@ export default function ChatPage() {
 
         {/* Right preview panel 40% -- LAYOUT-01, LAYOUT-04 */}
         <ResizablePanel defaultSize={40} minSize={15}>
-          <div className="flex h-full min-h-0 flex-col overflow-y-auto">
+          <div className="flex h-full min-h-0 flex-col overflow-hidden">
             <RightPanel threadId={threadId} />
           </div>
         </ResizablePanel>

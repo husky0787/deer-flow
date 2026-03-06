@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { BundledLanguage } from "shiki";
 import { Streamdown } from "streamdown";
 
@@ -73,28 +73,15 @@ function VideoPreview({
   src: string;
   filepath: string;
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    return () => {
-      if (video) {
-        video.pause();
-        video.removeAttribute("src");
-        video.load(); // 释放已缓冲的数据
-      }
-    };
-  }, [filepath]);
-
   return (
     <div className="flex size-full items-center justify-center p-4">
       <video
-        ref={videoRef}
+        key={filepath}
         src={src}
         controls
         muted
         playsInline
-        className="max-h-full max-w-full"
+        className="relative z-10 max-h-full max-w-full"
       />
     </div>
   );
