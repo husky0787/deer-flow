@@ -27,6 +27,11 @@ class UploadsMiddleware(AgentMiddleware[UploadsMiddlewareState]):
 
     state_schema = UploadsMiddlewareState
 
+    # Extensions whose uploads trigger an automatic .md conversion (mirrors uploads.py)
+    _CONVERTIBLE_EXTENSIONS = {
+        ".pdf", ".ppt", ".pptx", ".xls", ".xlsx", ".doc", ".docx",
+    }
+
     def __init__(self, base_dir: str | None = None):
         """Initialize the middleware.
 
@@ -50,6 +55,11 @@ class UploadsMiddleware(AgentMiddleware[UploadsMiddlewareState]):
     def _list_newly_uploaded_files(self, thread_id: str, last_message_files: set[str]) -> list[dict]:
         """List only newly uploaded files that weren't in the last message.
 
+        Filters out system-generated .md conversion files (e.g. report.md produced
+        from report.pdf by markitdown).  A .md file is considered a conversion
+        artifact when its stem matches a file whose extension belongs to
+        ``_CONVERTIBLE_EXTENSIONS``.
+
         Args:
             thread_id: The thread ID.
             last_message_files: Set of filenames that were already shown in previous messages.
@@ -62,18 +72,39 @@ class UploadsMiddleware(AgentMiddleware[UploadsMiddlewareState]):
         if not uploads_dir.exists():
             return []
 
+        # Collect all files first so we can determine which .md files are conversions
+        all_files = [p for p in uploads_dir.iterdir() if p.is_file()]
+
+        # Build the set of stems that have a convertible original file
+        original_stems = {
+            p.stem
+            for p in all_files
+            if p.suffix.lower() in self._CONVERTIBLE_EXTENSIONS
+        }
+        # Identify .md filenames that are system-generated conversion artifacts
+        converted_md_names = {
+            p.name
+            for p in all_files
+            if p.suffix.lower() == ".md" and p.stem in original_stems
+        }
+
         files = []
-        for file_path in sorted(uploads_dir.iterdir()):
-            if file_path.is_file() and file_path.name not in last_message_files:
-                stat = file_path.stat()
-                files.append(
-                    {
-                        "filename": file_path.name,
-                        "size": stat.st_size,
-                        "path": f"/mnt/user-data/uploads/{file_path.name}",
-                        "extension": file_path.suffix,
-                    }
-                )
+        for file_path in sorted(all_files):
+            # Skip files already shown in previous messages
+            if file_path.name in last_message_files:
+                continue
+            # Skip system-generated .md conversion files
+            if file_path.name in converted_md_names:
+                continue
+            stat = file_path.stat()
+            files.append(
+                {
+                    "filename": file_path.name,
+                    "size": stat.st_size,
+                    "path": f"/mnt/user-data/uploads/{file_path.name}",
+                    "extension": file_path.suffix,
+                }
+            )
 
         return files
 
