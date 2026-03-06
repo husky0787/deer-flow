@@ -2,8 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
-import { Streamdown } from "streamdown";
 import type { BundledLanguage } from "shiki";
+import { Streamdown } from "streamdown";
 
 import { CodeBlock } from "@/components/ai-elements/code-block";
 import { useThread } from "@/components/workspace/messages/context";
@@ -150,7 +150,6 @@ export function FilePreview({
           )
         ) : isImage ? (
           <div className="flex size-full items-center justify-center p-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={artifactUrl}
               alt={filepath}
